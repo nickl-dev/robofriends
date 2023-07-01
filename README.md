@@ -1,3 +1,21 @@
+# Robofriends
+
+<a>
+  <img 
+    src="https://robohash.org/2001:569:7773:6100:4dd3:242c:66f6:3e3a.png"
+    alt="Robot"
+    width="300"
+    loading="lazy"
+  />
+</a>
+
+<br/>
+<br/>
+
+Built with `React.js, Tailwind CSS, CSS`
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
