@@ -2,7 +2,7 @@ import Card from './Card';
 
 const CardList = ({ cards }) => {
   return (
-    <>
+    <div className='flex flex-wrap mx-auto justify-center'>
       {cards.map((card) => {
         return (
           <Card 
@@ -13,7 +13,7 @@ const CardList = ({ cards }) => {
           />
         )
       })}
-    </>
+    </div>
   )
 }
 
