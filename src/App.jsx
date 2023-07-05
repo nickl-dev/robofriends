@@ -1,29 +1,20 @@
-import Card from './components/Card'
+import CardList from './components/CardList'
 import robots from './utils/robots'
 import React, { Component } from 'react'
 
 class App extends Component {
   render () {
     return (
-      <div className="p-3">
-        <h1 className='text-center'>Robofriends</h1>
+      <>
+        <h1 className='tc'>Robofriends</h1>
 
         {/* Filter robots */}
         <input />
   
-        <section className='flex gap-1 flex-wrap'>
-          {robots.map((robot) => {
-            return (
-              <Card
-                key={robot.id}
-                id={robot.id}
-                name={robot.name}
-                email={robot.email}
-              />
-            )
-          })}
+        <section className=''>
+          <CardList cards={robots} />
         </section>
-      </div>
+      </>
     );
   }
 }
