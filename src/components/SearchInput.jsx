@@ -4,7 +4,7 @@ const SearchInput = ({ searchChange }) => {
   return (
     <>
       <input 
-        className='text-center mt-3 p-2 rounded outline-none focus:bg-cyan-100 border-2 focus:border-cyan-300 border-cyan-100 w-full max-w-sm'
+        className='text-center mt-3 p-2 rounded outline-none focus:bg-cyan-100 border-2 focus:border-cyan-300 border-cyan-100 w-3/4 max-w-sm'
         onChange={searchChange}
         placeholder='Search robots...'
         type='search'

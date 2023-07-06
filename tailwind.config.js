@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       'japanese-robot': ['Japanese Robot']
     },
-    extend: {},
+    extend: {
+      height: {
+        '500': '500px' 
+      }
+    },
   },
   plugins: [],
 }
