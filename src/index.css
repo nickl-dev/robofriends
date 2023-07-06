@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-* { @apply m-0 p-0 box-border; }
+@font-face {
+  font-family: "Japanese Robot";
+  src: local('Japanese Robot'),
+  url('./assets//japanese-robot.ttf') format('truetype')
+}
 
-body { @apply min-h-screen; }
+* { @apply m-0 p-0 box-border; }

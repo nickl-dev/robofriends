@@ -1,6 +1,6 @@
 import CardList from './components/CardList'
+import Loader from './components/Loader'
 import React, { Component } from 'react'
-import robots from './utils/robots'
 import SearchInput from './components/SearchInput'
 
 class App extends Component {
@@ -8,14 +8,25 @@ class App extends Component {
     super ();
 
     this.state = {
-      robots,
+      robots: [],
       searchInput: ''
     }
   }
 
+  async componentDidMount () {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const data = await response.json();
+      this.setState({ robots: data });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   onSearchChange = (event) => {
-    this.setState({ searchInput: event.target.value })
-    console.log(this.state)
+    setTimeout(() => {
+      this.setState({ searchInput: event.target.value })
+    }, 100)
   }
 
   trimAndLowerCase = (string) => string.trim().toLowerCase();
@@ -25,17 +36,23 @@ class App extends Component {
       return this.trimAndLowerCase(robot.name).includes(this.trimAndLowerCase(this.state.searchInput))
     })
 
-    return (
-      <div className='text-center p-4'>
-        <h1 className='text-4xl'>Robofriends</h1>
+    const shouldRenderRobots = this.state.robots.length > 0
 
-        {/* Filter robots */}
-        <SearchInput searchChange={this.onSearchChange} />
-  
+    return (
+      <div className='bg-gradient-to-b from-slate-600 to-slate-400 text-center p-5 min-h-screen'>
+        <h1 className='text-6xl text-cyan-400 font-japanese-robot mt-6'>RoboFriends</h1>
+
+        {shouldRenderRobots ? <SearchInput searchChange={this.onSearchChange} /> : null}
+
         <section className='mt-5'>
-          {filteredRobots.length 
+          {shouldRenderRobots 
             ? <CardList cards={filteredRobots} /> 
-            : <h3>No robots found for `'${this.state.searchInput}'`</h3>
+            : <Loader />
+          }
+
+          {shouldRenderRobots && !filteredRobots.length 
+            ? <h3 className='text-cyan-300 font-semibold'>No robots found for <strong>'{`${this.state.searchInput}`}'</strong></h3>
+            : null
           }
         </section>
       </div>
