@@ -13,13 +13,14 @@ function App () {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
         const data = await response.json();
-        setRobots(data);
+        return data;
       } catch (error) {
         throw error;
       }
     }
 
-    fetchRobots();
+    const robots = fetchRobots();
+    setRobots(robots);
   }, [])
 
   const onSearchChange = (event) => {
