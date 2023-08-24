@@ -1,8 +1,8 @@
-# Robofriends
+# RoboFriends
 
 <a>
   <img 
-    src="https://robohash.org/2001:569:7773:6100:4dd3:242c:66f6:3e3a.png"
+    src="https://robohash.org/test4"
     alt="Robot"
     width="300"
     loading="lazy"
@@ -12,7 +12,7 @@
 <br/>
 <br/>
 
-Built with `React.js, Tailwind CSS, CSS`
+Built with `React.js, JSONPlaceholder API, Tailwind CSS, CSS`
 
 ---
 
