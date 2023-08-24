@@ -27,7 +27,7 @@ function App () {
     return trimAndLowerCase(robot.name).includes(trimAndLowerCase(searchInput))
   })
 
-  if (robots.length) {
+  if (!robots.length) {
     return (
       <div className='bg-gradient-to-b from-slate-700 to-blue-500 text-center p-5 min-h-screen'>
         <Loader />
