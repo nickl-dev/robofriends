@@ -18,7 +18,7 @@ function App () {
     }
   }
 
-  useEffect (() => {
+  useEffect (async () => {
     setRobots(await fetchRobots());
   }, [])
 
