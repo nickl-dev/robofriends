@@ -8,19 +8,18 @@ function App () {
   const [robots, setRobots] = useState([]);
   const [searchInput, setSearchInput] = useState('');
 
-  useEffect (() => {
-    const fetchRobots = async () => {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-        const data = await response.json();
-        return data;
-      } catch (error) {
-        throw error;
-      }
+  const fetchRobots = async () => {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw error;
     }
+  }
 
-    const robots = fetchRobots();
-    setRobots(robots);
+  useEffect (() => {
+    setRobots(await fetchRobots());
   }, [])
 
   const onSearchChange = (event) => {
