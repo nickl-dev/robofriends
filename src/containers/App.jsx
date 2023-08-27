@@ -1,8 +1,8 @@
-import CardList from './components/CardList'
-import Loader from './components/Loader'
+import CardList from '../components/CardList'
+import Loader from '../components/Loader'
 import React, { useState, useEffect } from 'react'
-import SearchInput from './components/SearchInput'
-import Scroll from './components/Scroll'
+import SearchInput from '../components/SearchInput'
+import Scroll from '../components/Scroll'
 
 function App () {
   const [robots, setRobots] = useState([]);
