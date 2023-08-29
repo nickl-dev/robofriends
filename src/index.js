@@ -1,13 +1,20 @@
+import './index.css';
+import { legacy_createStore as createStore} from 'redux'
+import { Provider } from 'react-redux';
+import { searchRobots } from './reducers';
+import App from './containers/App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './containers/App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const store = createStore(searchRobots);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
