@@ -1,14 +1,18 @@
 import './index.css';
-import { legacy_createStore as createStore} from 'redux'
+import { createLogger } from 'redux-logger';
+import { legacy_createStore as createStore, applyMiddleware, combineReducers} from 'redux'
 import { Provider } from 'react-redux';
-import { searchRobots } from './reducers';
+import { searchRobots, requestRobots } from './reducers';
 import App from './containers/App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import ThunkMiddleware from 'redux-thunk';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = createStore(searchRobots);
+const rootReducer = combineReducers({ searchRobots, requestRobots })
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger, ThunkMiddleware));
 
 root.render(
   <React.StrictMode>
