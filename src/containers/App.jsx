@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
 function App ({ onSearchChange, onRequestRobots, error, isPending, robots, searchField }) {  
   useEffect (() => {
     onRequestRobots();
-  }, [])
+  }, [onRequestRobots])
 
   const trimAndLowerCase = (string) => string.trim().toLowerCase();
 
